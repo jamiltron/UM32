@@ -1,16 +1,15 @@
--- file: Decode.hs
 module Decode where
-import Types
-import Data.Word
-import Data.Bits ((.&.), rotateL, rotateR)
+import           Data.Bits   (rotateL, rotateR, (.&.))
 import qualified Data.Vector as V
+import           Data.Word
+import           Types
 
 -- translate string to binary value
 toBinary :: String -> Word32
 toBinary s = binIter (reverse s) 0 0
   where binIter s i col
           | s == []       = col
-          | head s == '1' = binIter (tail s) (i + 1) (col + 2 ^ i) 
+          | head s == '1' = binIter (tail s) (i + 1) (col + 2 ^ i)
           | otherwise     = binIter (tail s) (i + 1) col
 
 -- decode the word32 into five 32bit unsigned words
