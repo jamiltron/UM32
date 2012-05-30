@@ -21,4 +21,5 @@ test coverage. I will also hopefully take the time to put together a basic Assem
 Usage
 ====
 $ ghc Emulator
+
 $ Emulator filename.um
